@@ -2,7 +2,8 @@
   "name": "mego-halo-reef",
   "scripts": {
     "verify": "node scripts/_verify.js",
-    "task": "node scripts/_task.js"
+    "task": "node scripts/_task.js",
+    "run-node": "./reef-node purge-chain --dev -y && ./reef-node --dev"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",

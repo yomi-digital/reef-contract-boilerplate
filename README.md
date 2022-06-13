@@ -6,12 +6,15 @@ Since REEF is not a "classic" EVM we need to make some changes on our environmen
 
 ## Install Reef Node
 To work locally we need the Reef Node, you can download latest release from [here](https://github.com/reef-defi/reef-chain/releases), pick up the `reef-node` file and download it in your computer.
-At the moment of writing last release is v8, so we can run following commands to download and run the node:
+At the moment of writing last release is v8, so we can run following commands to download the node:
 ```
 wget https://github.com/reef-defi/reef-chain/releases/download/v8/reef-node
 chmod 777 ./reef-node
-./reef-node purge-chain --dev -y
-./reef-node --dev
+```
+
+Then you can always run the node using:
+```
+yarn run-node
 ```
 
 Compliments! You have now a local node up and running!

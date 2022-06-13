@@ -2,9 +2,6 @@
     "network": "reef",
     "contract_name": "HelloReef",
     "constructor_arguments": [],
-    "contract_address": "0x2f5abFe6621F629258460e636528da87C115A4b9",
-    "owner_mnemonic": "just canyon equip key onion gaze pumpkin because miss steel little double",
-    "owner_key": "0x3df8b9373a0f126174e2f0b3be117c52bfdf5a892801b0dff7565ada61b56d0b",
-    "owner_address": "0x10323dc7db6527cef79d03bbb8037b41c3e129ca",
-    "substrate_address": "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+    "contract_address": "0x818Be9d50d84CF31dB5cefc7e50e60Ceb73c1eb5",
+    "substrate_address": ""
 }
