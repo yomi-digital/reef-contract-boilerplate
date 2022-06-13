@@ -22,7 +22,7 @@ If we're using `local` network instead we'll read keys from local node (so we're
 
 Just run following commands:
 ```
-yarn start testnet
+yarn task init testnet
 ```
 
 ## Deploying on local node

@@ -1,7 +1,6 @@
 {
   "name": "mego-halo-reef",
   "scripts": {
-    "start": "node scripts/_init.js",
     "verify": "node scripts/_verify.js",
     "task": "node scripts/_task.js"
   },

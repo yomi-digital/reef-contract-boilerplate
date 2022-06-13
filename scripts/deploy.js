@@ -3,13 +3,13 @@ const fs = require("fs");
 
 async function main() {
   const configs = JSON.parse(fs.readFileSync(process.env.CONFIG).toString())
-  // TODO: Check if not local network
+  
   const signers = await hre.reef.getSigners();
   const signer = signers[0]
   console.log("Using address:", signer._substrateAddress)
 
   let balance = await signer.getBalance()
-  console.log('Balance is:', balance.toBigInt())
+  console.log('Balance is:', balance)
   if (balance.toBigInt() === 0) {
     console.log("Binding coins to EVM..")
     await signer.claimDefaultAccount()

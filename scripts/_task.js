@@ -8,6 +8,20 @@ let scriptFile
 async function run() {
     try {
         configFile = './configs/' + argv._[1] + '.json'
+        if (!fs.existsSync(configFile)) {
+            // Generating new mnemonic
+            if (argv._[1] !== 'local') {
+                const configs = JSON.parse(fs.readFileSync('./configs/local.json').toString())
+                configs.network = "reef_" + argv._[1]
+                configs.contract_address = ""
+                const generated = await generate()
+                console.log('New mnemonic is:', generated)
+                configs.owner_mnemonic = generated
+                fs.writeFileSync(configFile, JSON.stringify(configs, null, 4))
+            }
+        } else {
+            console.log("Configuration exists yet!")
+        }
         const configs = JSON.parse(fs.readFileSync(configFile).toString())
         if (argv._[1] !== 'local') {
             if (
@@ -15,7 +29,6 @@ async function run() {
                 configs.owner_mnemonic !== undefined
             ) {
                 child_process.execSync(
-                    'PROVIDER="' + configs.provider + '" ' +
                     'MNEMONIC="' + configs.owner_mnemonic + '" ' +
                     'CONFIG="' + configFile + '" ' +
                     ' npx hardhat --network ' + configs.network +
