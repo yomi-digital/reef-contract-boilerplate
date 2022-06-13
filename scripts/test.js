@@ -10,7 +10,7 @@ async function main() {
     // Init contract
     const contract = await hre.reef.getContractAt(configs.contract_name, configs.contract_address, signer);
     // Run task
-    const hello = await contract.sayHello("Donald");
+    const hello = await contract.sayHello("Reefer");
     console.log('--')
     console.log('Response from contract is:');
     console.log(hello);

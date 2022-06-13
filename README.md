@@ -75,8 +75,8 @@ You should be able to see something like this in console:
 --
 Using address: 5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY
 --
-Response from contract is: Hello Donald!
-Hello Donald!
+Response from contract is:
+Hello Reefer!
 --
 All done, exiting!
 ```
