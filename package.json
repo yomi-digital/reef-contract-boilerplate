@@ -1,24 +1,24 @@
 {
-  "name": "mego-halo-reef",
+  "name": "reef-contract-boilerplate",
   "scripts": {
-    "verify": "node scripts/_verify.js",
-    "task": "node scripts/_task.js",
-    "run-node": "./reef-node purge-chain --dev -y && ./reef-node --dev"
+    "verify": "node --no-warnings scripts/_verify.js",
+    "task": "node --no-warnings scripts/_task.js",
+    "node-build": "cd node && bash build.sh"
   },
   "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.0.2",
-    "@nomiclabs/hardhat-waffle": "^2.0.1",
-    "chai": "^4.3.4",
-    "ethereum-waffle": "^3.3.0",
-    "ethers": "~5.5.0",
-    "hardhat": "^2.1.1"
+    "@nomiclabs/hardhat-ethers": "^2.2.1",
+    "@nomiclabs/hardhat-waffle": "^2.0.3",
+    "chai": "^4.3.7",
+    "ethereum-waffle": "^3.4.4",
+    "ethers": "~5.7.2",
+    "hardhat": "^2.12.3"
   },
   "dependencies": {
-    "@openzeppelin/contracts": "4.4.0",
-    "@reef-defi/hardhat-reef": "^1.0.12",
+    "@openzeppelin/contracts": "4.8.0",
+    "@reef-defi/hardhat-reef": "^1.0.13",
     "bip39": "^3.0.4",
-    "dotenv": "^16.0.0",
+    "dotenv": "^16.0.3",
     "ethereumjs-wallet": "^1.0.2",
-    "minimist": "^1.2.6"
+    "minimist": "^1.2.7"
   }
 }

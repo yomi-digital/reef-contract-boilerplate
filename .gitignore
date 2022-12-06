@@ -1,5 +1,6 @@
 node_modules
 reef-node
+.DS_Store
 
 #Hardhat files
 cache

@@ -10,10 +10,18 @@ async function main() {
 
   let balance = await signer.getBalance()
   console.log('Balance is:', balance.toString())
-  if (balance.eq(0)) {
-    console.log("Binding coins to EVM..")
-    await signer.claimDefaultAccount()
-    balance = await signer.getBalance()
+  // Checking if EVM account was claimed
+  if (!(await signer.isClaimed())) {
+    console.log(
+      "No claimed EVM account found -> claimed default EVM account:",
+      await signer.getAddress()
+    );
+    await signer.claimDefaultAccount();
+  } else {
+    console.log(
+      "Claimed EVM account found:",
+      await signer.getAddress()
+    );
   }
   if (balance.gt(0)) {
     console.log("Deploying contract..")
@@ -28,6 +36,8 @@ async function main() {
       console.log('Verifying..')
       await hre.reef.verifyContract(contract.address, configs.contract_name, configs.constructor_arguments);
     }
+  } else {
+    console.log("Not enough balance.")
   }
 }
 

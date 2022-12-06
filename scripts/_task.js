@@ -19,8 +19,6 @@ async function run() {
                 configs.owner_mnemonic = generated
                 fs.writeFileSync(configFile, JSON.stringify(configs, null, 4))
             }
-        } else {
-            console.log("Configuration exists yet!")
         }
         const configs = JSON.parse(fs.readFileSync(configFile).toString())
         if (argv._[1] !== 'local') {
@@ -29,7 +27,7 @@ async function run() {
                 configs.owner_mnemonic !== undefined
             ) {
                 child_process.execSync(
-                    'MNEMONIC="' + configs.owner_mnemonic + '" ' +
+                    'NODE_NO_WARNINGS=1 MNEMONIC="' + configs.owner_mnemonic + '" ' +
                     'CONFIG="' + configFile + '" ' +
                     ' npx hardhat --network ' + configs.network +
                     ' run ' + scriptFile, { stdio: 'inherit' }
@@ -41,7 +39,7 @@ async function run() {
             }
         } else {
             child_process.execSync(
-                'PROVIDER="' + configs.provider + '" ' +
+                'NODE_NO_WARNINGS=1 PROVIDER="' + configs.provider + '" ' +
                 'CONFIG="' + configFile + '" ' +
                 ' npx hardhat --network ' + configs.network +
                 ' run ' + scriptFile, { stdio: 'inherit' }

@@ -5,6 +5,18 @@ async function main() {
     const configs = JSON.parse(fs.readFileSync(process.env.CONFIG).toString())
     const signers = await hre.reef.getSigners();
     const signer = signers[0]
+    if (!(await signer.isClaimed())) {
+        console.log(
+            "No claimed EVM account found -> claimed default EVM account:",
+            await signer.getAddress()
+        );
+        await signer.claimDefaultAccount();
+    } else {
+        console.log(
+            "Claimed EVM account found:",
+            await signer.getAddress()
+        );
+    }
     console.log('--')
     console.log("Using address:", signer._substrateAddress)
     // Init contract
